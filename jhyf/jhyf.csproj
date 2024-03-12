@@ -24,6 +24,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Files\" />
+    <Folder Include="Views\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
