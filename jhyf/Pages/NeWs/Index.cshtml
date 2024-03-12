@@ -1,0 +1,202 @@
+﻿@page
+@model jhyf.Pages.NeWs.IndexModel
+
+@{
+    ViewData["Title"] = "Новости";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-page="Create" style=text-decoration:none; class="btn btn-dark">Добавить новость</a>
+    </p>
+}
+
+@* <a href="http://www.google.com"><img src="~/img/фон.jpg" width="60" height="60" /></a> *@
+<div class="text-center">15.09.2022</div>
+<div class="row" >
+    <div class="col-md-4" style="background-color:lightsteelblue">
+        <section>
+            <a href="https://edu.gov.ru/press/5775/okolo-14-milliona-studentov-kolledzhey-napishut-vserossiyskie-proverochnye-raboty?ysclid=lt5sddb3ha156148869"><img src="~/img/впр спо.png" width="250" height="200" /></a>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2" style="background-color:lightsteelblue">
+        <section>
+            <h4>Всероссийские проверочные работы напишут порядка 1,4 млн студентов колледжей</h4>
+            <div>15 сентября начинается проведение всероссийских проверочных работ для обучающихся организаций среднего профессионального образования (ВПР СПО). </div>
+        </section>
+    </div>
+</div>
+
+<label></label>
+<div class="text-center">30.06.2023</div>
+<div class="row">
+    <div class="col-md-4" style="background-color:lightsteelblue">
+        <section>
+            <a href="https://edu.gov.ru/press/7231/federalnye-osnovnye-obrazovatelnye-programmy-po-vsem-predmetam-budut-vvedeny-v-nachale-uchebnogo-goda/?ysclid=lt5tc5gcb2557664691"><img src="~/img/фооп.png" width="250" height="200" /></a>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2" style="background-color:lightsteelblue">
+        <section>
+            <h4>Федеральные основные образовательные программы по всем предметам введены в начале учебного года 2023-2024</h4>
+            <div>Федеральные основные образовательные программы (ФООП) по всем школьным предметам начали действовать с 1 сентября 2023 года.</div>
+        </section>
+    </div>
+</div>
+
+<label></label>
+<div class="text-center">05.02.2024</div>
+<div class="row">
+    <div class="col-md-4" style="background-color:lightsteelblue">
+        <section>
+            <a href="https://mathcenter.kpfu.ru/tpost/5d6rxoivm1-prisuzhdena-premiya-kraforda-v-oblasti-m"><img src="~/img/новости матем 1.png" width="250" height="200" /></a>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2" style="background-color:lightsteelblue">
+        <section>
+            <h4>Присуждена премия Крафорда в области математики и астрономии</h4>
+            <div>Премия Крафорда (Crafoord Prize) — одна из крупнейших научных премий Швеции, с 1982 года присуждаемая Шведской академией наук лауреатам в одной из четырех номинаций: математика и астрономия, науки о Земле, биологические науки и исследования по лечению полиартрита.</div>
+        </section>
+    </div>
+</div>
+
+<label></label>
+<div class="text-center">24.11.2023</div>
+<div class="row">
+    <div class="col-md-4" style="background-color:lightsteelblue">
+        <section>
+            <a href="https://mathcenter.kpfu.ru/tpost/i5tkp8tpt1-pravitelstvo-planiruet-uchredit-premiyu"><img src="~/img/новости матем 2.png" width="250" height="200" /></a>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2" style="background-color:lightsteelblue">
+        <section>
+            <h4>Правительство планирует учредить премию за решение математических «задач тысячелетия»</h4>
+            <div>Премьер-министр Михаил Мишустин поручил представить предложения по учреждению в России единовременной премии за решение математических «задач тысячелетия».</div>
+        </section>
+    </div>
+</div>
+
+@foreach (var item in Model.AddNews)
+{
+    <label></label>
+    <div class="text-center">
+        <h6>@Html.DisplayFor(modelItem => item.Created)</h6>
+    </div>
+    @* <div style="border: thin ridge black;
+    background-color: #C0C0C0;
+    font-family: Verdana;
+    /* font-size: 14pt; */
+    /* font-weight: bold; */
+    /* color: white; */
+    border-top-left-radius: 10px 5px;
+    border-bottom-right-radius: 10% 5%;
+    border-top-right-radius: 10px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;">
+        border-left: 3px solid blue; border-right: 3px solid blue удалить
+        <div>
+            <div style="color: black; font-weight: bold">
+                <h3>@Html.DisplayFor(modelIem => item.Title)</h3>
+            </div>
+            <div>
+                @Html.DisplayFor(modelItem => item.ImageNews)
+                <p><img src="@Url.Content(item.ImageNews)"/></p> удалить
+            </div>
+            <div style="color: black">
+                <p class="card-text">@Html.Raw(item.Description)</p> удалить
+                @Html.DisplayFor(modelItem => item.Description)
+            </div>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-page="./Delete" asp-route-id="@item.Id" style="text-decoration:none;" class="btn btn-danger">Удалить</a>
+            }
+        </div>
+    </div> *@
+    <div class="row">
+        <div class="col-md-4" style="background-color:lightsteelblue">
+            <section>
+                @Html.DisplayFor(modelItem => item.ImageNews)
+                @* @Html.DisplayFor("<img style='width=250px; height=200px;' src=\"data:image/jpg;base64," + Convert.ToBase64String(item.ImageNews) + "\" />") *@
+            </section>
+        </div>
+        <div class="col-md-6 col-md-offset-2" style="background-color:lightsteelblue">
+            <section>
+                <h4>@Html.DisplayFor(modelIem => item.Title)</h4>
+                <div><p class="card-text">@Html.Raw(item.Description)</p></div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="text-end">
+                        <a asp-page="./Delete" asp-route-id="@item.Id" style="text-decoration:none;" class="btn btn-danger">Удалить</a>
+                    </div>              
+                }
+            </section>
+        </div>
+    </div>
+}
+
+@* @foreach (var item in Model.AddHomework)
+{
+    <div>
+        <a href="@item.Zadanie" style="color:lightseagreen">@item.Name</a>
+        @Html.DisplayFor(modelItem => item.Opisanie)
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-page="./Edit" asp-route-id="@item.Id" style="text-decoration:none;">Редактировать</a>
+            <a asp-page="./Delete" asp-route-id="@item.Id" style="text-decoration:none;">Удалить</a>
+        }
+    </div>
+} *@
+
+
+
+@* 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AddNews[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddNews[0].ImageNews)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddNews[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddNews[0].Created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddNews[0].LastUpdated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AddNews) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageNews)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdated)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table> *@

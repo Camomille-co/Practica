@@ -1,0 +1,46 @@
+﻿@page
+@model jhyf.Pages.NeWs.DeleteModel
+
+@{
+    ViewData["Title"] = "Удаление новости";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Удаление</h1>
+
+<h3>Вы уверены, что хотите удалить эту запись?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddNews.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddNews.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddNews.ImageNews)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddNews.ImageNews)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddNews.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddNews.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddNews.Created)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddNews.Created)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="AddNews.Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-page="./Index">Отмена</a>
+    </form>
+</div>

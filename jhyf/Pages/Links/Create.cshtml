@@ -1,0 +1,40 @@
+﻿@page
+@model jhyf.Pages.Links.CreateModel
+
+@{
+    ViewData["Title"] = "Добавление ссылки";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Добавить</h1>
+
+<h4>Ссылка</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Link.NameFromLink" class="control-label"></label>
+                <input asp-for="Link.NameFromLink" class="form-control" />
+                <span asp-validation-for="Link.NameFromLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Link.Linki" class="control-label"></label>
+                <input asp-for="Link.Linki" class="form-control" />
+                <span asp-validation-for="Link.Linki" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Вернуться к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

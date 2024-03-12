@@ -1,0 +1,40 @@
+﻿@page
+@model jhyf.Pages.Homeworks.DeleteModel
+
+@{
+    ViewData["Title"] = "Удаление домашнего задания";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Удаление домашнего задания</h1>
+
+<h3>Вы уверены, что хотите удалить эту запись?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddHomework.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddHomework.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddHomework.Zadanie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddHomework.Zadanie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddHomework.Opisanie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddHomework.Opisanie)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="AddHomework.Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-page="./Index">Отмена</a>
+    </form>
+</div>

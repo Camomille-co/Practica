@@ -1,0 +1,69 @@
+﻿@page
+@model jhyf.Pages.Links.IndexModel
+
+@{
+    ViewData["Title"] = "Ссылки";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Здесь предоставлены все полезные ссылки</h1>
+
+@if(User.IsInRole("Admin"))
+{
+<p>
+    <a asp-page="Create" style="text-decoration:none">Добавить ссылку</a>
+</p>
+}
+
+<div>
+    <a href="https://www.yaklass.ru/?h" style="color:lightseagreen; text-decoration:underline">Якласс</a>
+</div>
+<div>
+    <a href="https://resh.edu.ru" style="color:lightseagreen; text-decoration:underline">РЭШ</a>
+</div>
+<div>
+    <a href="https://fioco.ru/obraztsi_i_opisaniya_vpr_2023" style="color:lightseagreen; text-decoration:underline">ФИОКО(ВПР)</a>
+</div>
+
+@foreach(var item in Model.Link)
+{
+    <div>
+        <a href="@item.Linki" style="color:lightseagreen">@item.NameFromLink</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-page="./Edit" asp-route-id="@item.Id" style="text-decoration:none">Редактировать</a> 
+            <a asp-page = "./Delete" asp-route-id = "@item.Id" style="text-decoration:none">Удалить</a>
+        }
+    </div>
+}
+
+
+@* <div class="row">
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            @if (User.IsInRole("Admin"))
+            {
+                <p>
+                    <a asp-page="Create" style="text-decoration:none">Добавить ссылку</a>
+                </p>
+            }
+
+            @foreach (var item in Model.Link)
+            {
+                <div>
+                    <a href="@item.Linki" style="color:lightseagreen">@item.NameFromLink</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.Id" style="text-decoration:none">Редактировать</a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id" style="text-decoration:none">Удалить</a>
+                    }
+                </div>
+            }
+        </section>
+    </div>
+    <div class="col-md-6">
+        <section>
+            <div>Hello</div>
+        </section>
+    </div>
+</div> *@

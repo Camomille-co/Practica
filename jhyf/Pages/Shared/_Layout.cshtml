@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    @* <style>
+        body {
+            background: aqua;
+            background-image: url('../img/фон.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: grey;
+        }
+    </style> *@
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/jhyf.styles.css" asp-append-version="true" />
+</head>
+<body>
+    
+    <header >
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" @* asp-area="" asp-page="/Index" *@>Сайт преподавателя математики ТК ВСГУТУ</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="">Студентам</a>
+                            <ul class="subnavbar" style="background-color:lightcyan">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Homeworks/Index">Домашние задания</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/FOS">ФОС</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="https://drive.google.com/file/d/16WyODj4KV2EG08-SqV2Knfb0NE-sZm-R/view?usp=sharing">РПД</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Lectures/Index">Лекции</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="">Учебники</a>
+                                    <ul class="subnavbar" style="background-color:lightcyan">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" href="https://drive.google.com/file/d/1vD_g2gxlFJV9vqNx8Q03_REKFxkSf3EQ/view?usp=sharing">Алгебра</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" href="https://drive.google.com/file/d/1N6MB-dke0plH28rrgrvjn6UFi9ovs8pg/view?usp=sharing">Геометрия</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Links/Index">Полезные ссылки</a>
+                            <ul class="subnavbar">
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/NeWs/Index">Новости</a>
+                            <ul class="subnavbar">
+                            </ul>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    @* <a href="http://www.google.com"><img src="~/img/фон.jpg" width="60" height="60" /></a> *@
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; Преподаватель Пойдонова В.В.<a asp-area="" asp-controller="Home" asp-action=""></a>
+            <span style="border-radius: 2px; padding: 10px 20px;">ⓔ poidonova.v.v@gmail.com</span>
+            <span style="border-radius: 2px; padding: 10px 20px;">✆ 8(3012)430390</span>
+            <a href="https://forms.gle/ik3jQcLLbKVKSbTYA">Обратная связь</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

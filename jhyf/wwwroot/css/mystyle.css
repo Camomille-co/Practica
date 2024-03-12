@@ -1,0 +1,7 @@
+﻿body {
+    background: aqua;
+    background-image: url('../img/фон.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: grey;
+}

@@ -1,0 +1,31 @@
+﻿@page
+@model jhyf.Pages.Homeworks.IndexModel
+
+@{
+    ViewData["Title"] = "Домашние задания";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@* <h1>Добавление домашнего задания</h1> *@
+<div class="text-center">
+    <h3 class="display-6">Домашние задания</h3>
+</div>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-page="Create" style=text-decoration:none;>Добавить задание</a>
+    </p>
+}
+
+@foreach (var item in Model.AddHomework) {
+    <div>
+        <a href="@item.Zadanie" style="color:lightseagreen">@item.Name</a>
+        @Html.DisplayFor(modelItem => item.Opisanie)
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-page="./Edit" asp-route-id="@item.Id" style="text-decoration:none;">Редактировать</a>
+            <a asp-page="./Delete" asp-route-id="@item.Id" style="text-decoration:none;">Удалить</a>
+        }
+    </div>
+}
+

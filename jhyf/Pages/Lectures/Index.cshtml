@@ -1,0 +1,69 @@
+﻿@page
+@model jhyf.Pages.Lectures.IndexModel
+
+@{
+    ViewData["Title"] = "Лекции";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h3 class="display-6">Лекции</h3>
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-page="Create" style="text-decoration:none;">Добавть лекцию</a>
+    </p>
+}
+
+<div>
+    <a href="https://docs.google.com/presentation/d/1WYg8-OGd1U5D9ev_YwvVKMLSoxknGsbm/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Понятие первообразной</a>
+</div>
+<div>
+    <a href="https://docs.google.com/presentation/d/1Wgn6uxHqiW-qHTQYIQY1tm6PjiJOtxsG/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Определение производной</a>
+</div>
+<div>
+    <a href="https://docs.google.com/presentation/d/1xbnRHXXppLwiHZBzBmdkCX2bdL2XYbvN/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Правила дифференцирования</a>
+</div>
+<div>
+    <a href="https://docs.google.com/presentation/d/1-NrF6Lhh5eAIQkcngfowSkWP2MCUD4p4/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Производная сложной функции</a>
+</div>
+<div>
+    <a href="https://docs.google.com/presentation/d/1B6_5vdgSslQ1BT52dQAUSt9130NMnLk-/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Промежутки монотонности</a>
+</div>
+<div>
+    <a href="https://docs.google.com/presentation/d/12KuUV4Cj9bA5KeIcxc1F7CPm1DA_5zr1/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Уравнение касательной</a>
+</div>
+<div>
+    <a href="https://docs.google.com/presentation/d/1rWh5rcVaoQYLxN5KOKSQjkWQIxJALv9Q/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Методы решения тригонометрических уравнений</a>
+</div>
+<div>
+    <a href="https://docs.google.com/presentation/d/1UfIdfjvukE0FdX7qcvRgK336HblwxNAH/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Тригонометрические уравнения</a>
+</div>
+<div>
+    <a href="https://docs.google.com/presentation/d/1IxQ-u_7OYkJ90YMRICn282NgpYPYfOru/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Тригонометрические функции</a>
+</div>
+<div>
+    <a href="https://docs.google.com/presentation/d/1zWbYB4hjzjs6Y4Ncv3p4dSxXW6Goe7Hj/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Степень с рациональным показателем</a>
+</div>
+<div>
+    <a href="https://docs.google.com/presentation/d/10Pnn1nhZR8vGPxVGZxv8KCud4v7NtQjv/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Степенная функция</a>
+</div>
+<div>
+    <a href="https://docs.google.com/presentation/d/1WVZ5fIYu6d5dorZ2GQsItSC9BP0epLM3/edit?usp=sharing&ouid=115249991041695494887&rtpof=true&sd=true" style="color:lightseagreen; text-decoration:underline">Показательная функция</a>
+</div>
+
+
+
+@foreach (var item in Model.AddLectures)
+{
+    <div>
+        <a href="@item.LecturesLink" style="color:lightseagreen">@item.Name</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-page="./Edit" asp-route-id="@item.Id" style="text-decoration:none;">Редактировать</a>
+            <a asp-page="./Delete" asp-route-id="@item.Id" style="text-decoration:none;">Удалить</a>
+        }
+    </div>
+}

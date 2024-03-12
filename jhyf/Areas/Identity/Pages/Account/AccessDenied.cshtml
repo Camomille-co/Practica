@@ -1,0 +1,10 @@
+﻿@page
+@model AccessDeniedModel
+@{
+    ViewData["Title"] = "Вы не администратор!";
+}
+
+<header>
+    <h1 class="text-danger">@ViewData["Title"]</h1>
+    <p class="text-danger">Только администратор может добавлять, редактировать и удалять записи на этой странице.</p>
+</header>

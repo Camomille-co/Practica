@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using jhyf.Data.Identity
+@inject SignInManager<ApplicationIdentityUser> SignInManager
+@inject UserManager<ApplicationIdentityUser> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+            <a class="nav-link text-dark">Hello @User.Identity?.Name!</a>
+            <ul class="subnavbar" style="background-color:lightcyan">
+                <li>
+                    <a class="nav-link text-dark" asp-page="/Profile">Изменить пароль</a>
+                </li>
+                @if (User.IsInRole("User"))
+                {
+                    <li>
+                        <a class="nav-link text-dark" asp-page="/PersonalData">Удалить профиль</a>
+                    </li>
+                }
+            </ul>
+    </li>
+    <li class="nav-item">
+        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+            <button  type="submit" class="nav-link btn btn-link text-dark">Выход</button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Регистрация</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Вход</a>
+    </li>
+}
+</ul>
