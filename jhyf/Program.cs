@@ -1,5 +1,6 @@
 using jhyf.Data;
 using jhyf.Data.Identity;
+using jhyf.FileUploadServiice;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,7 @@ builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>()
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<IFileUploadService, LocalFileUploadService>();
 
 var app = builder.Build();
 

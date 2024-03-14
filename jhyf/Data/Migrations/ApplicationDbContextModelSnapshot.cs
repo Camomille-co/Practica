@@ -210,14 +210,20 @@ namespace jhyf.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("File")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<byte[]>("ImageNews")
                         .HasColumnType("varbinary(max)");
 
                     b.Property<DateTime>("LastUpdated")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("LinkFile")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LinkImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameDoc")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameFile")
                         .HasColumnType("nvarchar(max)");

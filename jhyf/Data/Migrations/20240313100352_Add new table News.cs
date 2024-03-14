@@ -18,8 +18,11 @@ namespace jhyf.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ImageNews = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NameFile = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageNews = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NameDoc = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LinkFile = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Created = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastUpdated = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },

@@ -5,24 +5,24 @@
 namespace jhyf.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class updateNews : Migration
+    public partial class AddLinkImageInNews : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "ImageNews",
-                table: "News");
+            migrationBuilder.AddColumn<string>(
+                name: "LinkImage",
+                table: "News",
+                type: "nvarchar(max)",
+                nullable: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<byte[]>(
-                name: "ImageNews",
-                table: "News",
-                type: "varbinary(max)",
-                nullable: true);
+            migrationBuilder.DropColumn(
+                name: "LinkImage",
+                table: "News");
         }
     }
 }

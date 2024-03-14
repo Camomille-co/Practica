@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using jhyf.Data;
 using jhyf.Data.Identity;
+using jhyf.FileUploadServiice;
 
 namespace jhyf.Pages.NeWs
 {
@@ -16,10 +17,15 @@ namespace jhyf.Pages.NeWs
 
         IWebHostEnvironment _appEnvironment;
 
-        public CreateModel(jhyf.Data.ApplicationDbContext context, IWebHostEnvironment appEnvironment)
+        private readonly IFileUploadService fileUploadService;
+
+        public string FilePath;
+
+        public CreateModel(jhyf.Data.ApplicationDbContext context, IWebHostEnvironment appEnvironment, IFileUploadService _fileUploadService)
         {
             _context = context;
             _appEnvironment = appEnvironment;
+            fileUploadService = _fileUploadService;
         }
 
         public IActionResult OnGet()
@@ -31,7 +37,7 @@ namespace jhyf.Pages.NeWs
         public AddNews AddNews { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync([Bind("Id,...ImageNews")] AddNews news, IFormFile Image)
+        public async Task<IActionResult> OnPostAsync(/*IFormFile file, AddNews news*/)
         {
             if (!ModelState.IsValid)
             {
@@ -55,11 +61,38 @@ namespace jhyf.Pages.NeWs
                 //}
             }
 
+            //if (file != null)
+            //{
+            //    FilePath = await fileUploadService.UploadFileAsync(file);
+            //}
+
+            //AddNews = new AddNews
+            //{
+            //    Title = news.Title,
+            //    NameFile = FilePath,
+            //    ImageNews = news.ImageNews,
+            //    LinkImage = news.LinkImage,
+            //    Description = news.Description,
+            //    NameDoc = news.NameDoc,
+            //    LinkFile = news.LinkFile
+
+            //};
+
             _context.News.Add(AddNews);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
+
+        //public async Task<IActionResult> OnPostAsync(IFormFile file)
+        //{
+        //    if(file != null)
+        //    {
+        //        FilePath = await fileUploadService.UploadFileAsync(file);
+        //    }
+
+        //    return RedirectToPage("./Index");
+        //}
 
         //[HttpPost]
         //public async Task<IActionResult> AddFile(IFormFile uploadedFile)

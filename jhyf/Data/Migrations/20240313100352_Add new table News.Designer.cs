@@ -12,8 +12,8 @@ using jhyf.Data;
 namespace jhyf.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240301154352_update News2")]
-    partial class updateNews2
+    [Migration("20240313100352_Add new table News")]
+    partial class AddnewtableNews
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -213,14 +213,17 @@ namespace jhyf.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("File")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<byte[]>("ImageNews")
                         .HasColumnType("varbinary(max)");
 
                     b.Property<DateTime>("LastUpdated")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("LinkFile")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameDoc")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameFile")
                         .HasColumnType("nvarchar(max)");
