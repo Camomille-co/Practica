@@ -5,21 +5,11 @@
     ViewData["Title"] = "Создание новости";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
-@* <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="DropdownLink" role="button">
-
-    </a>
-    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="DropdownLink">
-        <li><a class="dropdown-item" asp-action="">Создать</a></li>
-    </ul>
-</li> *@
-
 
 <link href="~/lib/froala-editor/css/froala_editor.min.css" rel="stylesheet" />
 
 <h1>Создать новую новость</h1>
 
-@* <hr /> *@
 <form method="post" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="mb-3">
@@ -27,7 +17,6 @@
         <input type="text" class="form-control" id="Title" asp-for="AddNews.Title">
     </div>
     <div class="input-group mb-3">
-        @* <label class="input-group-text" for="ImageNews">Выбрать файл</label> *@
         <input type="file" name="file" class="form-control" id="NameFile" asp-for="AddNews.NameFile">
     </div>
     <div class="form-group">
@@ -54,12 +43,6 @@
         <input type="submit" value="Опубликовать новость" class="btn btn-primary" /> |
         <a asp-page="Index">Отмена</a>
     </div>
-    @* <div>
-        @if(!string.IsNullOrWhiteSpace(Model.FilePath))
-        {
-            <img src="@Model.FilePath" alt="Alternate" width="250" height="200" />
-        }
-    </div> *@
 </form>
 
 @section Scripts {

@@ -37,30 +37,6 @@ namespace jhyf.Pages.NeWs
         [BindProperty]
         public AddNews AddNews { get; set; } = default!;
 
-        //public class InputModel
-        //{
-        //    [Display(Name = "Заголовок")]
-        //    public string Title { get; set; }
-
-        //    [Display(Name = "Путь фотографии")]
-        //    public string NameFile { get; set; }
-
-        //    [Display(Name = "Фото")]
-        //    public byte[] ImageNews { get; set; }
-
-        //    [Display(Name = "Ссылка на новость")]
-        //    public string LinkImage { get; set; }
-
-        //    [Display(Name = "Текст новости")]
-        //    public string Description { get; set; }
-
-        //    [Display(Name = "Название файла")]
-        //    public string NameDoc { get; set; }
-
-        //    [Display(Name = "Ссылка на файл из google диска")]
-        //    public string LinkFile { get; set; }
-        //}
-
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync(IFormFile file)
         {
@@ -90,35 +66,5 @@ namespace jhyf.Pages.NeWs
 
             return RedirectToPage("./Index");
         }
-
-        //public async Task<IActionResult> OnPostAsync(IFormFile file)
-        //{
-        //    if(file != null)
-        //    {
-        //        FilePath = await fileUploadService.UploadFileAsync(file);
-        //    }
-
-        //    return RedirectToPage("./Index");
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> AddFile(IFormFile uploadedFile)
-        //{
-        //    if (uploadedFile != null)
-        //    {
-        //        string path = "/Files/" + uploadedFile.FileName;
-
-        //        using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
-        //        {
-        //            await uploadedFile.CopyToAsync(fileStream);
-        //        }
-
-        //        AddNews file = new AddNews { NameFile = uploadedFile.FileName, ImageNews = path };
-        //        _context.News.Add(file);
-        //        _context.SaveChanges();
-        //    }
-
-        //    return RedirectToAction("Index");
-        //}
     }
 }
