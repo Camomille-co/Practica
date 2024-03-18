@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using jhyf.Data;
 using jhyf.Data.Identity;
 using jhyf.FileUploadServiice;
+using System.ComponentModel.DataAnnotations;
 
 namespace jhyf.Pages.NeWs
 {
@@ -36,47 +37,53 @@ namespace jhyf.Pages.NeWs
         [BindProperty]
         public AddNews AddNews { get; set; } = default!;
 
+        //public class InputModel
+        //{
+        //    [Display(Name = "Заголовок")]
+        //    public string Title { get; set; }
+
+        //    [Display(Name = "Путь фотографии")]
+        //    public string NameFile { get; set; }
+
+        //    [Display(Name = "Фото")]
+        //    public byte[] ImageNews { get; set; }
+
+        //    [Display(Name = "Ссылка на новость")]
+        //    public string LinkImage { get; set; }
+
+        //    [Display(Name = "Текст новости")]
+        //    public string Description { get; set; }
+
+        //    [Display(Name = "Название файла")]
+        //    public string NameDoc { get; set; }
+
+        //    [Display(Name = "Ссылка на файл из google диска")]
+        //    public string LinkFile { get; set; }
+        //}
+
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync(/*IFormFile file, AddNews news*/)
+        public async Task<IActionResult> OnPostAsync(IFormFile file)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
-
-                //if (Image!=null)
-                //{
-                //    if(Image.Length > 0)
-                //    {
-                //        byte[] p1 = null;
-                //        using (var fs1 = Image.OpenReadStream())
-                //        {
-                //            using (var ms1 = new MemoryStream())
-                //            {
-                //                fs1.CopyTo(ms1);
-                //                p1 = ms1.ToArray();
-                //            }
-                //            AddNews.ImageNews = p1;
-                //        }
-                //    }
-                //}
             }
 
-            //if (file != null)
-            //{
-            //    FilePath = await fileUploadService.UploadFileAsync(file);
-            //}
+            if (file != null)
+            {
+                FilePath = await fileUploadService.UploadFileAsync(file);
+            }
 
-            //AddNews = new AddNews
-            //{
-            //    Title = news.Title,
-            //    NameFile = FilePath,
-            //    ImageNews = news.ImageNews,
-            //    LinkImage = news.LinkImage,
-            //    Description = news.Description,
-            //    NameDoc = news.NameDoc,
-            //    LinkFile = news.LinkFile
-
-            //};
+            AddNews = new AddNews
+            {
+                Title = AddNews.Title,
+                NameFile = FilePath,
+                ImageNews = AddNews.ImageNews,
+                LinkImage = AddNews.LinkImage,
+                Description = AddNews.Description,
+                NameDoc = AddNews.NameDoc,
+                LinkFile = AddNews.LinkFile
+            };
 
             _context.News.Add(AddNews);
             await _context.SaveChangesAsync();

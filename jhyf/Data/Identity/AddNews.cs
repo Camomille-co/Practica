@@ -32,6 +32,6 @@ namespace jhyf.Data.Identity
         public DateTime Created { get; set; } = DateTime.Now;
 
         [Display(Name = "Дата последнего обновления")]
-        public DateTime LastUpdated { get; set; }
+        public DateTime LastUpdated { get; set; } = DateTime.Now;
     }
 }

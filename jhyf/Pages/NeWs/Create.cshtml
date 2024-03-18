@@ -54,6 +54,12 @@
         <input type="submit" value="Опубликовать новость" class="btn btn-primary" /> |
         <a asp-page="Index">Отмена</a>
     </div>
+    @* <div>
+        @if(!string.IsNullOrWhiteSpace(Model.FilePath))
+        {
+            <img src="@Model.FilePath" alt="Alternate" width="250" height="200" />
+        }
+    </div> *@
 </form>
 
 @section Scripts {
