@@ -3,6 +3,7 @@ using jhyf.Data.Identity;
 using jhyf.FileUploadServiice;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,13 +42,19 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Images")),
+//    RequestPath = "/Images"
+//});
+
 app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "posdefault",
-    pattern: "{controller=Admin}/{id?}");
+    name: "default",
+    pattern: "{controller=Home}/{id?}");
 
 app.MapRazorPages();
 

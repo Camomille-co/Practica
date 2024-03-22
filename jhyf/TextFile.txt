@@ -108,3 +108,39 @@
             }
         </section>
     </div>
+
+
+
+    Index.cshtml
+
+    @* <div style="border: thin ridge black;
+    background-color: #C0C0C0;
+    font-family: Verdana;
+    /* font-size: 14pt; */
+    /* font-weight: bold; */
+    /* color: white; */
+    border-top-left-radius: 10px 5px;
+    border-bottom-right-radius: 10% 5%;
+    border-top-right-radius: 10px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;">
+        border-left: 3px solid blue; border-right: 3px solid blue удалить
+        <div>
+            <div style="color: black; font-weight: bold">
+                <h3>@Html.DisplayFor(modelIem => item.Title)</h3>
+            </div>
+            <div>
+                @Html.DisplayFor(modelItem => item.ImageNews)
+                <p><img src="@Url.Content(item.ImageNews)"/></p> удалить
+            </div>
+            <div style="color: black">
+                <p class="card-text">@Html.Raw(item.Description)</p> удалить
+                @Html.DisplayFor(modelItem => item.Description)
+            </div>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-page="./Delete" asp-route-id="@item.Id" style="text-decoration:none;" class="btn btn-danger">Удалить</a>
+            }
+        </div>
+    </div> *@

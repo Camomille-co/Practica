@@ -9,6 +9,7 @@ using jhyf.Data;
 using jhyf.Data.Identity;
 using jhyf.FileUploadServiice;
 using System.ComponentModel.DataAnnotations;
+using System.Net;
 
 namespace jhyf.Pages.NeWs
 {
@@ -19,14 +20,15 @@ namespace jhyf.Pages.NeWs
         IWebHostEnvironment _appEnvironment;
 
         private readonly IFileUploadService fileUploadService;
-
+        private readonly IWebHostEnvironment webHostEnvironment;
         public string FilePath;
 
-        public CreateModel(jhyf.Data.ApplicationDbContext context, IWebHostEnvironment appEnvironment, IFileUploadService _fileUploadService)
+        public CreateModel(jhyf.Data.ApplicationDbContext context, IWebHostEnvironment appEnvironment, IFileUploadService _fileUploadService, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _appEnvironment = appEnvironment;
             fileUploadService = _fileUploadService;
+            this.webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult OnGet()
@@ -45,10 +47,16 @@ namespace jhyf.Pages.NeWs
                 return Page();
             }
 
+            string paht = "C:/Users/cazaz/Downloads/ForMathTeach/ForMathTeach/jhyf/wwwroot/Images/";
+
+            int ind = paht.Length;
+
             if (file != null)
             {
                 FilePath = await fileUploadService.UploadFileAsync(file);
             }
+
+            FilePath = FilePath.Substring(71);
 
             AddNews = new AddNews
             {
