@@ -47,10 +47,6 @@ namespace jhyf.Pages.NeWs
                 return Page();
             }
 
-            string paht = "C:/Users/cazaz/Downloads/ForMathTeach/ForMathTeach/jhyf/wwwroot/Images/";
-
-            int ind = paht.Length;
-
             if (file != null)
             {
                 FilePath = await fileUploadService.UploadFileAsync(file);
