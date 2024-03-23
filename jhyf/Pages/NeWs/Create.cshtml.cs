@@ -52,7 +52,11 @@ namespace jhyf.Pages.NeWs
                 FilePath = await fileUploadService.UploadFileAsync(file);
             }
 
-            FilePath = FilePath.Substring(71);
+            //FilePath = FilePath.Substring(71);
+            //C:\Users\cazaz\Downloads\ForMathTeach\ForMathTeach\jhyf\wwwroot\Images\сад с сакурой.jpg
+            FilePath = FilePath.Substring(FilePath.IndexOf("Images"));
+
+            FilePath = FilePath.Substring(7);
 
             AddNews = new AddNews
             {
